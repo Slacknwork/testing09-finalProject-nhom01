@@ -1,0 +1,24 @@
+{
+  "name": "testing09-finalproject-nhom09",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test:dangky":"playwright test DangKy --project=chromium --headed"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Slacknwork/testing09-finalProject-nhom09.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Slacknwork/testing09-finalProject-nhom09/issues"
+  },
+  "homepage": "https://github.com/Slacknwork/testing09-finalProject-nhom09#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.58.0",
+    "@types/node": "^25.0.10"
+  }
+}
