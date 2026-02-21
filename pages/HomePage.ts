@@ -6,6 +6,7 @@ export class HomePage{
     readonly userMenuButton: Locator
     readonly dangNhapButton: Locator
     readonly dangKyButton: Locator
+    readonly HCMLocation: Locator
 
     constructor(page: Page){
         this.page = page
@@ -30,7 +31,9 @@ export class HomePage{
                             .or(page.locator("li.py-2:has-text('Đăng ký')"));
         
         this.dangNhapButton = page.getByRole("button", {name: "Đăng nhập"})
-                            .or(page.locator("li.py-2:has-text('Đăng nhập')"));                    
+                            .or(page.locator("li.py-2:has-text('Đăng nhập')"));    
+                            
+        this.HCMLocation = page.locator("(//a[@href='/rooms/ho-chi-minh'])[1]")
 
     }
 
@@ -58,6 +61,13 @@ export class HomePage{
     async clickDangNhapButton(): Promise<void>{
         await this.dangNhapButton.waitFor({state: 'visible', timeout: 6000})
         await this.dangNhapButton.click()
+        await this.page.waitForTimeout(2000);
+    }
+
+    async clickHCMLocation(): Promise<void>{
+        await this.HCMLocation.scrollIntoViewIfNeeded({timeout: 2000})
+        await this.HCMLocation.waitFor({state: 'visible', timeout: 6000})
+        await this.HCMLocation.click()
         await this.page.waitForTimeout(2000);
     }
 
