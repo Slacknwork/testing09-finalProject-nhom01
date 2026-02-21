@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test:dangky":"playwright test DangKy --project=chromium --headed"
+    "test:dangky":"playwright test DangKy --project=chromium --headed",
+    "test:booking":"playwright test Booking --project=chromium --headed"
   },
   "repository": {
     "type": "git",

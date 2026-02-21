@@ -1,0 +1,65 @@
+import {Page, Locator} from '@playwright/test';
+
+export class RoomDetailPage {
+    readonly page: Page
+
+    readonly dateTimePicker: Locator
+    readonly closeBtnInDate: Locator
+    readonly bookingBtn: Locator
+    readonly bookingFailedNoti: Locator
+    readonly confirmBtn: Locator
+    readonly successNoti: Locator
+
+    constructor(page: Page){
+        this.page = page
+
+        this.dateTimePicker = page.locator("//div[text() = 'Nhận phòng']/parent::div")
+        this.closeBtnInDate = page.getByRole("button", {name: "Close"})
+        this.bookingBtn = page.getByRole("button", {name: "Đặt phòng"})
+        //ant-notification-notice ant-notification-notice-warning ant-notification-notice-closable
+        this.bookingFailedNoti = page.locator("//div[contains(@class, 'ant-notification-notice-warning')]")
+        this.confirmBtn = page.getByRole('button', {name: "Xác nhận"})
+        this.successNoti = page.locator("//div[contains(@class, 'ant-notification-notice-success')]")
+    }
+
+    async clickDateTimePicker(): Promise<void>{
+        await this.dateTimePicker.waitFor({state: 'visible', timeout: 6000})
+        await this.dateTimePicker.click()
+        await this.page.waitForTimeout(2000)
+    }
+
+    async chooseDate(numOfDate: number): Promise<void>{
+        const currentDate: Date = new Date()
+        const currentDay = currentDate.getDate()
+        const choosenDay = currentDay + numOfDate
+        
+        let dayLocator: Locator
+        let choosenDayLocator: Locator
+
+        dayLocator = this.page.locator(`//span[text() = '${currentDay}']/parent::span`)
+        choosenDayLocator = this.page.locator(`//span[text() = '${choosenDay}']/parent::span`)
+
+        await dayLocator.waitFor({state: 'visible', timeout: 6000})
+        await dayLocator.click()
+        await this.page.waitForTimeout(2000)
+
+        await choosenDayLocator.waitFor({state: 'visible', timeout: 6000})
+        await choosenDayLocator.click()
+        await this.page.waitForTimeout(2000)
+
+        await this.closeBtnInDate.click()
+        await this.page.waitForTimeout(2000)
+    }
+
+    async clickBookingBtn(): Promise<void>{
+        await this.bookingBtn.waitFor({state: 'visible', timeout: 6000})
+        await this.bookingBtn.click()
+        await this.page.waitForTimeout(2000)
+    }
+
+    async clickConfirmBtn(): Promise<void>{
+        await this.confirmBtn.waitFor({state: 'visible', timeout: 6000})
+        await this.confirmBtn.click()
+        await this.page.waitForTimeout(2000)
+    }
+}
