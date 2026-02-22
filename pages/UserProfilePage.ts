@@ -4,6 +4,7 @@ import { HighlightElement } from '../utils/HighLightElement';
 export class UserProfilePage {
     readonly page: Page
 
+    readonly allRooms: Locator
     readonly rooms: Locator
     readonly name: Locator
     readonly date: Locator
@@ -38,7 +39,9 @@ export class UserProfilePage {
     constructor (page: Page){
         this.page = page
 
-        this.rooms = page.locator("//div[@class='ant-card-body']/ancestor::div[@data-aos='zoom-in']").first()
+        this.allRooms = page.locator("//div[@class='ant-card-body']/ancestor::div[@data-aos='zoom-in']") 
+        this.rooms = page.locator("//div[@class='ant-card-body']/ancestor::div[@data-aos='zoom-in']").first()       
+        //this.rooms = page.locator("//div[@class='ant-card-body']").nth(2)
         this.name = page.locator("//p[@class='truncate text-xl']").first()
         this.date = page.locator("//span[@class='']").first()
         this.price = page.locator("//span[@class='font-bold']").first()
@@ -133,4 +136,7 @@ export class UserProfilePage {
         await this.page.waitForTimeout(2000)
     } 
 
+    async countAllRooms(): Promise<number>{
+        return await this.allRooms.count()
+    }
 }

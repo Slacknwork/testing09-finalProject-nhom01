@@ -3,6 +3,7 @@ import {Page, Locator} from '@playwright/test';
 export class RoomDetailPage {
     readonly page: Page
 
+    readonly roomName: Locator
     readonly dateTimePicker: Locator
     readonly closeBtnInDate: Locator
     readonly bookingBtn: Locator
@@ -13,6 +14,7 @@ export class RoomDetailPage {
     constructor(page: Page){
         this.page = page
 
+        this.roomName = page.locator("//h2[@class=' font-bold text-3xl pt-4']")
         this.dateTimePicker = page.locator("//div[text() = 'Nhận phòng']/parent::div")
         this.closeBtnInDate = page.getByRole("button", {name: "Close"})
         this.bookingBtn = page.getByRole("button", {name: "Đặt phòng"})
