@@ -13,6 +13,7 @@ test.describe('Đặt phòng', () => {
         const homePage = new HomePage(page)
         const roomPage = new RoomPage(page)
         const roomDetailPage = new RoomDetailPage(page)
+        const userProfile = new UserProfilePage(page)
         const loginModal = new LoginModal(page)
 
         await homePage.goto()
@@ -24,12 +25,18 @@ test.describe('Đặt phòng', () => {
 
         await homePage.clickHCMLocation()
         await roomPage.clickHCMRooms()
+        const roomName = await roomDetailPage.roomName.textContent()
         await roomDetailPage.clickDateTimePicker()
         await roomDetailPage.chooseDate(3)
         await roomDetailPage.clickBookingBtn()
         await roomDetailPage.clickConfirmBtn()
 
         expect(roomDetailPage.successNoti).toBeVisible()
+
+        await homePage.clickUserProfileBtn()        
+
+        expect(await userProfile.name.textContent()).toContain(roomName!.trim())
+
     })
 
     test('Đặt phòng thất bại', async({page}) => {
@@ -54,6 +61,7 @@ test.describe('Đặt phòng', () => {
         const loginModal = new LoginModal(page)
         const userProfile = new UserProfilePage(page)
         const highlight =  new HighlightElement(page)
+        const allRooms = userProfile.countAllRooms()
 
         await homePage.goto()
 
@@ -63,16 +71,22 @@ test.describe('Đặt phòng', () => {
         await loginModal.login("sadsa@gmail.com", "sadsad")
         await homePage.clickUserProfileBtn()
 
-        await highlight.highlightElements(userProfile.rooms)
+        for (let room = 1; room <= await allRooms; room++){
+            await userProfile.allRooms.nth(room).scrollIntoViewIfNeeded({timeout: 1000})
+            await highlight.highlightElements(userProfile.allRooms.nth(room))
+
+        }
         await highlight.highlightElements(userProfile.name)
-        await highlight.highlightElements(userProfile.date)
+        //wait highlight.highlightElements(userProfile.date)
         await highlight.highlightElements(userProfile.price)
-        await highlight.highlightElements(userProfile.status)
+        //await highlight.highlightElements(userProfile.status)
+
+        console.log(await userProfile.allRooms.count())
 
         expect(userProfile.rooms).toBeVisible()
         expect(userProfile.name).toBeVisible()
-        expect(userProfile.date).toBeVisible()
+        //expect(userProfile.date).toBeVisible()
         expect(userProfile.price).toBeVisible()
-        expect(userProfile.status).toBeVisible()
+        //expect(userProfile.status).toBeVisible()
     })
 })

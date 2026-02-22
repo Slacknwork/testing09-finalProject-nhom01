@@ -12,6 +12,9 @@ export class HighlightElement{
         if(await locator.isVisible()) {
             await locator.waitFor({state: 'visible', timeout: 2000})
             await locator.highlight() 
+            await locator.evaluate(element => {
+                element.style.border = '4px solid red';
+            })
         }
         await this.page.waitForTimeout(2000)
     }
