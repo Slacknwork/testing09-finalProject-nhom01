@@ -7,6 +7,8 @@ export class HomePage{
     readonly dangNhapButton: Locator
     readonly dangKyButton: Locator
     readonly HCMLocation: Locator
+    readonly userProfile: Locator
+    readonly userProfileBtn: Locator
 
     constructor(page: Page){
         this.page = page
@@ -34,6 +36,9 @@ export class HomePage{
                             .or(page.locator("li.py-2:has-text('Đăng nhập')"));    
                             
         this.HCMLocation = page.locator("(//a[@href='/rooms/ho-chi-minh'])[1]")
+
+        this.userProfile = page.locator("//*[@id='user-menu-button']")
+        this.userProfileBtn = page.locator("//a[@href='/info-user']", {hasText: "Dashboard"})
 
     }
 
@@ -68,6 +73,14 @@ export class HomePage{
         await this.HCMLocation.scrollIntoViewIfNeeded({timeout: 2000})
         await this.HCMLocation.waitFor({state: 'visible', timeout: 6000})
         await this.HCMLocation.click()
+        await this.page.waitForTimeout(2000);
+    }
+
+    async clickUserProfileBtn(): Promise<void>{
+        await this.userProfile.waitFor({state: 'visible', timeout: 2000})
+        await this.userProfile.click()
+        await this.userProfileBtn.waitFor({state: 'visible', timeout: 6000})
+        await this.userProfileBtn.click()
         await this.page.waitForTimeout(2000);
     }
 
