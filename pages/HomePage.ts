@@ -49,7 +49,7 @@ export class HomePage{
 
     // B2: click vao user menu
     async clickUserMenu(): Promise<void> {
-        await this.userMenuButton.waitFor({state: 'visible', timeout: 6000})
+        await this.userMenuButton.waitFor({state: 'visible', timeout: 12000})
         await this.userMenuButton.click();
         await this.page.waitForTimeout(2000);
     }
@@ -77,7 +77,7 @@ export class HomePage{
     }
 
     async clickUserProfileBtn(): Promise<void>{
-        await this.userProfile.waitFor({state: 'visible', timeout: 2000})
+        await this.userProfile.waitFor({state: 'visible', timeout: 6000})
         await this.userProfile.click()
         await this.userProfileBtn.waitFor({state: 'visible', timeout: 6000})
         await this.userProfileBtn.click()

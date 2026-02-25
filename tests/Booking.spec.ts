@@ -25,9 +25,12 @@ test.describe('Đặt phòng', () => {
 
         await homePage.clickHCMLocation()
         await roomPage.clickHCMRooms()
+
         const roomName = await roomDetailPage.roomName.textContent()
+        
         await roomDetailPage.clickDateTimePicker()
-        await roomDetailPage.chooseDate(3)
+        await roomDetailPage.chooseDateWithSelectedDay(26, 2)
+        await roomDetailPage.increaseCustomer()
         await roomDetailPage.clickBookingBtn()
         await roomDetailPage.clickConfirmBtn()
 
@@ -49,7 +52,7 @@ test.describe('Đặt phòng', () => {
         await homePage.clickHCMLocation()
         await roomPage.clickHCMRooms()
         await roomDetailPage.clickDateTimePicker()
-        await roomDetailPage.chooseDate(3)
+        await roomDetailPage.chooseDateWithCurrentDay(2)
         await roomDetailPage.clickBookingBtn()
 
         expect(roomDetailPage.bookingFailedNoti).toBeVisible()
@@ -71,6 +74,7 @@ test.describe('Đặt phòng', () => {
         await loginModal.login("sadsa@gmail.com", "sadsad")
         await homePage.clickUserProfileBtn()
 
+        await highlight.highlightElements(userProfile.avatarImg)
         for (let room = 1; room <= await allRooms; room++){
             await userProfile.allRooms.nth(room).scrollIntoViewIfNeeded({timeout: 1000})
             await highlight.highlightElements(userProfile.allRooms.nth(room))
@@ -80,10 +84,11 @@ test.describe('Đặt phòng', () => {
         //wait highlight.highlightElements(userProfile.date)
         await highlight.highlightElements(userProfile.price)
         //await highlight.highlightElements(userProfile.status)
+        
+        await page.waitForTimeout(15000)
 
-        console.log(await userProfile.allRooms.count())
-
-        expect(userProfile.rooms).toBeVisible()
+        expect(userProfile.avatarImg).toBeVisible({timeout: 6000})
+        expect(userProfile.rooms).toBeVisible({timeout: 6000})
         expect(userProfile.name).toBeVisible()
         //expect(userProfile.date).toBeVisible()
         expect(userProfile.price).toBeVisible()

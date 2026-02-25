@@ -10,6 +10,8 @@ export class RoomDetailPage {
     readonly bookingFailedNoti: Locator
     readonly confirmBtn: Locator
     readonly successNoti: Locator
+    readonly minusBtn: Locator 
+    readonly plusBtn: Locator
 
     constructor(page: Page){
         this.page = page
@@ -22,6 +24,8 @@ export class RoomDetailPage {
         this.bookingFailedNoti = page.locator("//div[contains(@class, 'ant-notification-notice-warning')]")
         this.confirmBtn = page.getByRole('button', {name: "Xác nhận"})
         this.successNoti = page.locator("//div[contains(@class, 'ant-notification-notice-success')]")
+        this.minusBtn = page.getByRole("button", {name: "-"})
+        this.plusBtn = page.getByRole("button", {name: "+"})
     }
 
     async clickDateTimePicker(): Promise<void>{
@@ -30,7 +34,7 @@ export class RoomDetailPage {
         await this.page.waitForTimeout(2000)
     }
 
-    async chooseDate(numOfDate: number): Promise<void>{
+    async chooseDateWithCurrentDay(numOfDate: number): Promise<void>{
         const currentDate: Date = new Date()
         const currentDay = currentDate.getDate()
         const choosenDay = currentDay + numOfDate
@@ -39,6 +43,27 @@ export class RoomDetailPage {
         let choosenDayLocator: Locator
 
         dayLocator = this.page.locator(`//span[text() = '${currentDay}']/parent::span`)
+        choosenDayLocator = this.page.locator(`//span[text() = '${choosenDay}']/parent::span`)
+
+        await dayLocator.waitFor({state: 'visible', timeout: 6000})
+        await dayLocator.click()
+        await this.page.waitForTimeout(2000)
+
+        await choosenDayLocator.waitFor({state: 'visible', timeout: 6000})
+        await choosenDayLocator.click()
+        await this.page.waitForTimeout(2000)
+
+        await this.closeBtnInDate.click()
+        await this.page.waitForTimeout(2000)
+    }
+
+    async chooseDateWithSelectedDay(startDay: number, numOfDate: number): Promise<void>{
+        const choosenDay = startDay + numOfDate
+        
+        let dayLocator: Locator
+        let choosenDayLocator: Locator
+
+        dayLocator = this.page.locator(`//span[text() = '${startDay}']/parent::span`)
         choosenDayLocator = this.page.locator(`//span[text() = '${choosenDay}']/parent::span`)
 
         await dayLocator.waitFor({state: 'visible', timeout: 6000})
@@ -62,6 +87,18 @@ export class RoomDetailPage {
     async clickConfirmBtn(): Promise<void>{
         await this.confirmBtn.waitFor({state: 'visible', timeout: 6000})
         await this.confirmBtn.click()
+        await this.page.waitForTimeout(2000)
+    }
+
+    async increaseCustomer(): Promise<void>{
+        await this.plusBtn.waitFor({state: 'visible', timeout: 4000})
+        await this.plusBtn.click()
+        await this.page.waitForTimeout(2000)
+    }
+
+    async decreaseCustomer(): Promise<void>{
+        await this.minusBtn.waitFor({state: 'visible', timeout: 4000})
+        await this.minusBtn.click()
         await this.page.waitForTimeout(2000)
     }
 }

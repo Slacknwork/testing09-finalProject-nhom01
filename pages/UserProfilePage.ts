@@ -11,6 +11,8 @@ export class UserProfilePage {
     readonly price: Locator
     readonly status: Locator
 
+    readonly avatarImg: Locator
+
     readonly email: Locator
     readonly fullname: Locator
     readonly phone: Locator
@@ -47,6 +49,7 @@ export class UserProfilePage {
         this.price = page.locator("//span[@class='font-bold']").first()
         this.status = page.locator("//span[@class='']").first()
 
+        this.avatarImg = page.locator("//img[@class='mx-auto w-36 h-36 object-cover rounded-full']")
         this.profile = page.getByRole('button', {name: 'Chỉnh sửa hồ sơ'})
 
         this.email = page.locator("//input[@id='email' and @class='ant-input css-zl9ks2']")

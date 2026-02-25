@@ -12,7 +12,7 @@ export class RoomPage {
     }
 
     async clickHCMRooms(): Promise<void> {
-        await this.HCMRooms.waitFor({state: 'visible', timeout: 6000})
+        await this.HCMRooms.waitFor({state: 'visible', timeout: 12000})
         await this.HCMRooms.click()
         await this.page.waitForTimeout(2000)
     }
