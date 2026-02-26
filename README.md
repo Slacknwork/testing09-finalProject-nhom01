@@ -42,34 +42,34 @@ Generate report:
 
 ### Project Structure
 
-> Testing-Project/
-> │
-> ├── .github/workflows (for ci/cd)
-> │   └── playwright.yml
-> |
-> ├── pages/ (folder containing page's locator and its function)
-> │   ├── HomePage.ts
-> │   ├── LoginModal.ts
-> │   ├── RegisterModal.ts
-> │   ├── RoomDetailModal.ts
-> │   ├── RoomPage.ts
-> │   └── UserProfilePage.ts
-> │
-> ├── tests/ (folder containing testing file)
-> │   ├── Booking.spec.ts
-> │   ├── Dangky.spec.ts
-> │   ├── UserProfile.spec.ts
-> │   └── example.spec.ts
-> │
-> ├── utils/ (folder containing utilities code for repeative code)
-> │   ├── ElementUser.ts
-> │   └── HighlightElement.ts
-> │
-> ├── .gitignore
-> ├── README.md
-> ├── package-lock.json
-> ├── package.json
-> └── playwright.config.ts
+Testing-Project/
+│
+├── .github/workflows (for ci/cd)
+│   └── playwright.yml
+|
+├── pages/ (folder containing page's locator and its function)
+│   ├── HomePage.ts
+│   ├── LoginModal.ts
+│   ├── RegisterModal.ts
+│   ├── RoomDetailModal.ts
+│   ├── RoomPage.ts
+│   └── UserProfilePage.ts
+│
+├── tests/ (folder containing testing file)
+│   ├── Booking.spec.ts
+│   ├── Dangky.spec.ts
+│   ├── UserProfile.spec.ts
+│   └── example.spec.ts
+│
+├── utils/ (folder containing utilities code for repeative code)
+│   ├── ElementUser.ts
+│   └── HighlightElement.ts
+│
+├── .gitignore
+├── README.md
+├── package-lock.json
+├── package.json
+└── playwright.config.ts
 
 ### Sample Bug Report
 
