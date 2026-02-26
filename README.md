@@ -33,8 +33,9 @@ Testing type: Functional / Regression / Smoke
 - Test case management: Excel, Jira
 
 #### Automation Testing
-- Framework: Playwright
-- Tech stack: Typescript
+- Framework: Playwright.
+- Tech stack: Typescript.
+
 Run test command:
 ```
 npm install
