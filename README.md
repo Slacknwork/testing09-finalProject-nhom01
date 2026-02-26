@@ -36,11 +36,14 @@ Testing type: Functional / Regression / Smoke
 - Framework: Playwright
 - Tech stack: Typescript
 Run test command:
-> npm install
-> npx playwright test
+```
+npm install
+npx playwright test
+```
 Generate report:
-> npx playwright show-report
-
+```
+npx playwright show-report
+```
 ## Project Structure
 ```
 Testing-Project/
