@@ -115,12 +115,12 @@ Mention the tools you used to build this project
 
 ## Contributing
 
-- **Bùi Đức Hoàng**	(test plan, test case, write test script) [TimB-spec]([https://github.com/PurpleBooth](https://github.com/TimB-spec))
-- **Dương Lê Minh Quang** (write test script, demo video presentation) [Duong Minh Quang]([https://github.com/PurpleBooth](https://github.com/MinhQuang0605))
-- **Phương Quốc Trung** (write test script, source code lead) [Slacknwork]([https://github.com/PurpleBooth](https://github.com/Slacknwork))
+- **Bùi Đức Hoàng**	(test plan, test case, write test script) [TimB-spec](https://github.com/TimB-spec)
+- **Dương Lê Minh Quang** (write test script, demo video presentation) [Duong Minh Quang](https://github.com/MinhQuang0605)
+- **Phương Quốc Trung** (write test script, source code lead) [Slacknwork](https://github.com/Slacknwork)
 
 ## Authors
-- **Phương Quốc Trung** - _Writer of this README_ - [Slacknwork]([https://github.com/PurpleBooth](https://github.com/Slacknwork))
+- **Phương Quốc Trung** - _Writer of this README_ - [Slacknwork](https://github.com/Slacknwork)
 
 
 ## Acknowledgments
