@@ -15,13 +15,14 @@ This project is created to demonstrate software testing skills including:
 The system under test: [Airbnb Demo](https://demo5.cybersoft.edu.vn/)
 Testing type: Functional / Regression / Smoke
 
-### Objectives
+## Objectives
 - Verify that the system meets business requirements.
 - Detect defects before release.
 - Ensure stability and usability of the application.
 - Improve overall product quality.
 
-### Test Approach
+## Test Approach
+
 #### Manual Testing
 - Requirement analysis.
 - Test scenario design.
@@ -40,7 +41,7 @@ Run test command:
 Generate report:
 > npx playwright show-report
 
-### Project Structure
+## Project Structure
 
 Testing-Project/
 │
@@ -71,7 +72,7 @@ Testing-Project/
 ├── package.json
 └── playwright.config.ts
 
-### Sample Bug Report
+## Sample Bug Report
 
 **Bug Title**: Unable to complete booking
 **Environment**: Chrome 120 / Windows 11
@@ -90,7 +91,7 @@ Expected Result: Booking confirmation page displayed
 Severity: High
 Priority: High
 
-### Test Coverage
+## Test Coverage
 
 | Module  | Total Test Cases | Passed | Failed |
 | ------- | ---------------- | ------ | ------ |
@@ -98,13 +99,6 @@ Priority: High
 | Booking | 25               | 23     | 2      |
 | Payment | 20               | 18     | 2      |
 
-  
-## Test Coverage
-
-Mention the tools you used to build this project
-
-- [Contributor Covenant](https://www.contributor-covenant.org/)
-- [Creative Commons](https://creativecommons.org/)
 
 ## How to Run (Automation)
 
