@@ -42,7 +42,7 @@ Generate report:
 > npx playwright show-report
 
 ## Project Structure
-
+```
 Testing-Project/
 │
 ├── .github/workflows (for ci/cd)
@@ -71,7 +71,7 @@ Testing-Project/
 ├── package-lock.json
 ├── package.json
 └── playwright.config.ts
-
+```
 ## Sample Bug Report
 
 **Bug Title**: Unable to complete booking
