@@ -8,7 +8,7 @@ export class RoomPage {
     constructor(page: Page){
         this.page = page
 
-        this.HCMRooms = page.locator("//a[@href='/room-detail/1']")
+        this.HCMRooms = page.locator("a[href='/room-detail/1']:not(.ant-card-cover a)");
     }
 
     async clickHCMRooms(): Promise<void> {
