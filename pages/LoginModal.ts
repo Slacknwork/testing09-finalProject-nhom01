@@ -1,4 +1,4 @@
-import {Page, Locator} from '@playwright/test';
+import {Page, Locator , expect } from '@playwright/test';
 
 export class LoginModal {
     readonly page: Page
@@ -8,16 +8,21 @@ export class LoginModal {
     readonly loginButton: Locator
     // readonly closeButton: Locator
     readonly modal: Locator   
+    message: any;
 
     constructor(page: Page){
         this.page = page
 
         this.modal = page.locator(".ant-modal-content")
 
-        this.emailInput = page.locator("input#email").or(page.getByRole('textbox', {name: "email"}))
-        this.passwordInput = page.locator("input#password").or(page.getByRole('textbox', {name: "password"}))
-        this.loginButton = page.getByRole("button", {name: "Đăng nhập"})
-    
+        this.emailInput = this.modal.locator('input#email')
+      .or(this.modal.getByRole('textbox', { name: /email/i }));
+    this.passwordInput = this.modal.locator('input#password')
+      .or(this.modal.getByRole('textbox', { name: /mật khẩu|password/i }));
+        this.loginButton = this.modal.locator('button[type="submit"]:has-text("Đăng nhập")');
+       this.message = page.locator(
+      '.ant-message-notice-content, .ant-notification-notice-message, .ant-form-item-explain, .ant-form-item-explain-error'
+    );
     }
 
     async waitForModal(timeout: number = 60000): Promise<void>{
@@ -40,9 +45,19 @@ export class LoginModal {
     }
 
     async login(email: string, password: string): Promise<void>{
+        await this.waitForModal();
         await this.fillEmail(email)
         await this.fillPassword(password)
         await this.clickLoginButton()
     }
+   async expectMessageContains(text: string | RegExp) {
+  // inline error trong modal
+  const inlineMsg = this.modal.getByText(text);
+  // fallback toast
+  const toastMsg = this.page.locator('.ant-message-notice-content, .ant-notification-notice-message')
+    .filter({ hasText: text });
+
+  await expect(inlineMsg.or(toastMsg).first()).toBeVisible({ timeout: 8000 });
+}
 
 }
