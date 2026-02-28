@@ -1,5 +1,5 @@
 import { Page, Locator,expect } from '@playwright/test';
-import { HighlightElement } from '../utils/HighLightElement';
+import { HighlightElement } from '../utils/HighlightElement';
 export class SearchPage {
     readonly page: Page
     readonly roomResult: Locator;

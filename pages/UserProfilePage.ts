@@ -1,5 +1,5 @@
 import {Page, Locator} from '@playwright/test';
-import { HighlightElement } from '../utils/HighLightElement';
+import { HighlightElement } from '../utils/HighlightElement';
 
 export class UserProfilePage {
     readonly page: Page
