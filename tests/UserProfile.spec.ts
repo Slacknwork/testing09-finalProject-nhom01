@@ -20,6 +20,8 @@ test.describe("Thông tin người dùng", () => {
         await loginModal.login("sadsa@gmail.com", "sadsad")
         await homePage.clickUserProfileBtn()
 
+        await highlight.highlightElements(userProfile.avatarImg)
+        expect(userProfile.avatarImg).toBeVisible() 
         await userProfile.showProfile()
 
         await highlight.highlightElements(userProfile.email)
