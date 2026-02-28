@@ -7,7 +7,10 @@
     "test:dangky":"playwright test DangKy --project=chromium --headed",
     "test:booking":"playwright test Booking --project=chromium --headed",
     "test:profile":"playwright test UserProfile --project=chromium --headed",
-    "test:Searching": "playwright test Searching --project=chromium --headed"
+    "test:Searching": "playwright test Searching --project=chromium --headed",
+    "test:auth": "playwright test tests/authentication.spec.ts --project=chromium --headed",
+  "test:tc02": "playwright test -g \"TC02\" --project=chromium --headed"
+
   },
   "repository": {
     "type": "git",

@@ -2,7 +2,7 @@ import {test, expect} from '@playwright/test';
 import { HomePage } from '../pages/HomePage';
 import { LoginModal } from '../pages/LoginModal';
 import { UserProfilePage } from '../pages/UserProfilePage';
-import { HighlightElement } from '../utils/HighLightElement';
+import { HighlightElement } from '../utils/HighlightElement';
 import { ElementUser } from '../utils/ElementUser';
 
 test.describe("Thông tin người dùng", () => {

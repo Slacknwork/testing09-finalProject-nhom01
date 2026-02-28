@@ -37,6 +37,8 @@ test.describe('Dang ky', () => {
 
         // B10: Chon gioi tinh
         await registerModal.selectGender()
+        // B11: nhân nút dk 
+         await this.submitButton.click();  
 
         expect(true).toBeTruthy()
     })

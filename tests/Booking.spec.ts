@@ -3,7 +3,7 @@ import { HomePage } from '../pages/HomePage';
 import { RoomPage } from '../pages/RoomPage';
 import { RoomDetailPage } from '../pages/RoomDetailPage';
 import { LoginModal } from '../pages/LoginModal';
-import { HighlightElement } from '../utils/HighLightElement';
+import { HighlightElement } from '../utils/HighlightElement';
 import { UserProfilePage } from '../pages/UserProfilePage';
 
 test.describe('Đặt phòng', () => {
