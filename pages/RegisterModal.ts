@@ -110,7 +110,7 @@ export class RegisterModal {
     await this.birthdayInput.click()
     await this.birthdayInput.fill("04/03/2000")
     await this.page.waitForTimeout(1000)
-    if (data.selectGender) await this.selectGender(0);
+    if (data.selectGender) await this.selectGender();
     await this.page.waitForTimeout(1000)
     await this.clickSubmit();
   }

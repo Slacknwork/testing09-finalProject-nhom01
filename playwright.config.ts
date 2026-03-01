@@ -1,4 +1,6 @@
 import { defineConfig, devices } from '@playwright/test';
+import { PlaywrightTestConfig } from '@playwright/test';
+
 
 /**
  * Read environment variables from file.
@@ -13,6 +15,8 @@ import { defineConfig, devices } from '@playwright/test';
  */
 export default defineConfig({
   testDir: './tests',
+  outputDir: 'screenshots',
+  snapshotPathTemplate: '{testDir}/screenshots/{testFilePath}/{arg}{ext}',
   timeout: 120000,
   expect: {
     timeout: 30000
@@ -26,7 +30,22 @@ export default defineConfig({
   /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: 'html',
+  reporter: [
+    ['html', {  outputFile: 'reports' }],
+    ['line'],
+    ['playwright-html', { 
+      testFolder: 'tests',
+      title: 'Testing09 Final Project Nhóm 1',
+      project: 'testing09-finalProject-nhom01',
+      release: '9.87.6',
+      testEnvironment: 'DEV',
+      embedAssets: true,
+      embedAttachments: true,
+      outputFolder: 'reports',
+      minifyAssets: true,
+      startServer: true,
+    }]
+  ],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('')`. */
@@ -34,8 +53,10 @@ export default defineConfig({
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
-
+    
     actionTimeout: 60000,
+
+    screenshot: 'only-on-failure'
   },
 
   /* Configure projects for major browsers */
@@ -54,7 +75,7 @@ export default defineConfig({
       name: 'webkit',
       use: { ...devices['Desktop Safari'] },
     },
-
+    
     /* Test against mobile viewports. */
     // {
     //   name: 'Mobile Chrome',
