@@ -4,13 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test:dangky":"playwright test DangKy --project=chromium --headed",
-    "test:booking":"playwright test Booking --project=chromium --headed",
-    "test:profile":"playwright test UserProfile --project=chromium --headed",
+    "test": "playwright test --project=chromium --headed",
+    "test:dangky": "playwright test DangKy --project=chromium --headed",
+    "test:booking": "playwright test Booking --project=chromium --headed",
+    "test:profile": "playwright test UserProfile --project=chromium --headed",
     "test:Searching": "playwright test Searching --project=chromium --headed",
     "test:auth": "playwright test tests/authentication.spec.ts --project=chromium --headed",
-  "test:tc02": "playwright test -g \"TC02\" --project=chromium --headed"
-
+    "test:tc02": "playwright test -g \"TC02\" --project=chromium --headed"
   },
   "repository": {
     "type": "git",
@@ -25,6 +25,7 @@
   "homepage": "https://github.com/Slacknwork/testing09-finalProject-nhom09#readme",
   "devDependencies": {
     "@playwright/test": "^1.58.0",
-    "@types/node": "^25.0.10"
+    "@types/node": "^25.3.3",
+    "playwright-html": "^1.2.5"
   }
 }

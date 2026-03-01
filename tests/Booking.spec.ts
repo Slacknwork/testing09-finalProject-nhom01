@@ -9,7 +9,7 @@ import { UserProfilePage } from '../pages/UserProfilePage';
 test.describe('Đặt phòng', () => {
     //test.describe.configure({mode: 'serial'})
 
-    test('Đặt phòng thành công', async({page}) =>{
+    test('Đặt phòng với thông tin hợp lệ (đã đăng nhập)', async({page}) =>{
         const homePage = new HomePage(page)
         const roomPage = new RoomPage(page)
         const roomDetailPage = new RoomDetailPage(page)
@@ -42,7 +42,7 @@ test.describe('Đặt phòng', () => {
 
     })
 
-    test('Đặt phòng thất bại', async({page}) => {
+    test('Đặt phòng với thông tin hợp lệ (chưa đăng nhập)', async({page}) => {
         const homePage = new HomePage(page)
         const roomPage = new RoomPage(page)
         const roomDetailPage = new RoomDetailPage(page)
@@ -75,11 +75,8 @@ test.describe('Đặt phòng', () => {
         await homePage.clickUserProfileBtn()
 
         await highlight.highlightElements(userProfile.avatarImg)
-        for (let room = 1; room <= await allRooms; room++){
-            await userProfile.allRooms.nth(room).scrollIntoViewIfNeeded({timeout: 1000})
-            await highlight.highlightElements(userProfile.allRooms.nth(room))
-
-        }
+        await userProfile.countAllRooms()
+        
         await highlight.highlightElements(userProfile.name)
         //wait highlight.highlightElements(userProfile.date)
         await highlight.highlightElements(userProfile.price)

@@ -42,8 +42,8 @@ export class RoomDetailPage {
         let dayLocator: Locator
         let choosenDayLocator: Locator
 
-        dayLocator = this.page.locator(`//span[text() = '${currentDay}']/parent::span`)
-        choosenDayLocator = this.page.locator(`//span[text() = '${choosenDay}']/parent::span`)
+        dayLocator = this.page.locator(`//span[text() = '${currentDay}']/parent::span`).first()
+        choosenDayLocator = this.page.locator(`//span[text() = '${choosenDay}']/parent::span`).first()
 
         await dayLocator.waitFor({state: 'visible', timeout: 6000})
         await dayLocator.click()
