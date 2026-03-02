@@ -143,9 +143,9 @@ export class UserProfilePage {
         //let allOfRooms: Locator
         const highlight =  new HighlightElement(this.page)
         const numOfRooms =  await this.allRooms.count()
-        for (let room = 1; room <= numOfRooms; room++){
+        for (let room = 0; room < numOfRooms; room++){
             //llOfRooms = this.page.locator(`//div[@class='ant-card-body']/ancestor::div[@data-aos='zoom-in'][${room}]`)
-            await this.allRooms.nth(room).scrollIntoViewIfNeeded({timeout: 1000})
+            await this.allRooms.nth(room).scrollIntoViewIfNeeded({timeout: 6000})
             await highlight.highlightElements(this.allRooms.nth(room))
         }
     }

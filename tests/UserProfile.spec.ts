@@ -53,7 +53,7 @@ test.describe("Thông tin người dùng", () => {
 
         await userProfile.showProfile() 
         await userProfile.fillInfo({
-            email:"sadsa@gmail.com",
+            email:"sadsad@gmail.com",
             fullname: "ok",
             phone: "0555555555",
             dateOfBirth: "18/11/2022",
@@ -66,7 +66,7 @@ test.describe("Thông tin người dùng", () => {
 
         await userProfile.showProfile()
 
-        expect(userProfile.email).toHaveValue('sadsa@gmail.com', {timeout: 1000})
+        expect(userProfile.email).toHaveValue('sadsad@gmail.com', {timeout: 1000})
         expect(userProfile.fullname).toHaveValue('ok', {timeout: 1000})
         expect(userProfile.phone).toHaveValue('0555555555', {timeout: 1000})
         expect(userProfile.dateOfBirth).toHaveValue('18/11/2022', {timeout: 1000})
@@ -85,7 +85,7 @@ test.describe("Thông tin người dùng", () => {
         await homePage.clickUserMenu()
         await homePage.clickDangNhapButton()
         
-        await loginModal.login("sadsa@gmail.com", "sadsad")
+        await loginModal.login("sadsad@gmail.com", "sadsad")
         await homePage.clickUserProfileBtn()
 
         await userProfile.showProfile() 
@@ -122,12 +122,12 @@ test.describe("Thông tin người dùng", () => {
         await homePage.clickUserMenu()
         await homePage.clickDangNhapButton()
         
-        await loginModal.login("sadsa@gmail.com", "sadsad")
+        await loginModal.login("sadsad@gmail.com", "sadsad")
         await homePage.clickUserProfileBtn()
 
         await userProfile.showProfile() 
         await userProfile.fillInfo({
-            email:"sadsa@gmail",
+            email:"sadsad@gmail",
             fullname: "okok5554",
             phone: "05555555",
             dateOfBirth: "180/11120222"
