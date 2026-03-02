@@ -37,7 +37,7 @@
         - generic [ref=e39] [cursor=pointer]:
           - paragraph [ref=e40]: Địa điểm
           - paragraph [ref=e41]: Bạn sắp đi đâu?
-        - paragraph [ref=e45] [cursor=pointer]: 02/03/2026 – 09/03/2026
+        - paragraph [ref=e45] [cursor=pointer]: 03/03/2026 – 10/03/2026
         - generic [ref=e48] [cursor=pointer]:
           - paragraph [ref=e49]: Thêm khách
           - img "search" [ref=e51]:
@@ -225,7 +225,7 @@
               - generic [ref=e250]: Email
               - textbox "Email Email" [ref=e254]:
                 - /placeholder: Điền tên vào đây...
-                - text: weak_1772352656521@mailinator.com
+                - text: weak_1772459446551@mailinator.com
             - generic [ref=e256]:
               - generic [ref=e259]: Password
               - generic [ref=e263]:

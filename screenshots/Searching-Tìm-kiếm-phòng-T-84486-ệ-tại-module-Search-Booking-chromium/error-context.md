@@ -37,7 +37,7 @@
         - paragraph [ref=e40]: Địa điểm
         - paragraph [ref=e41]: Bạn sắp đi đâu?
       - generic [ref=e44] [cursor=pointer]:
-        - paragraph [ref=e45]: 02/03/2026 – 09/03/2026
+        - paragraph [ref=e45]: 03/03/2026 – 10/03/2026
         - generic [ref=e47]:
           - generic [ref=e48]:
             - generic [ref=e49]:
@@ -62,8 +62,8 @@
                 - generic [ref=e68]: days starting today
           - generic [ref=e69]:
             - generic [ref=e71]:
-              - textbox "Early" [ref=e73]: Mar 2, 2026
-              - textbox "Continuous" [ref=e75]: Mar 9, 2026
+              - textbox "Early" [ref=e73]: Mar 3, 2026
+              - textbox "Continuous" [ref=e75]: Mar 10, 2026
             - generic [ref=e76]:
               - button [ref=e77]
               - generic [ref=e79]:

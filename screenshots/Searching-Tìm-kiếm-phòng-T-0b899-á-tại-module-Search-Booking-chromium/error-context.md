@@ -36,7 +36,7 @@
       - generic [ref=e39] [cursor=pointer]:
         - paragraph [ref=e40]: Địa điểm
         - paragraph [ref=e41]: Bạn sắp đi đâu?
-      - paragraph [ref=e45] [cursor=pointer]: 02/03/2026 – 09/03/2026
+      - paragraph [ref=e45] [cursor=pointer]: 03/03/2026 – 10/03/2026
       - generic [ref=e48] [cursor=pointer]:
         - paragraph [ref=e49]: Thêm khách
         - img "search" [ref=e51]:

@@ -21,7 +21,7 @@ test.describe('Đặt phòng', () => {
         await homePage.clickUserMenu()
         await homePage.clickDangNhapButton()
 
-        await loginModal.login("sadsa@gmail.com", "sadsad")
+        await loginModal.login("sadsad@gmail.com", "sadsad")
 
         await homePage.clickHCMLocation()
         await roomPage.clickHCMRooms()
@@ -71,7 +71,7 @@ test.describe('Đặt phòng', () => {
         await homePage.clickUserMenu()
         await homePage.clickDangNhapButton()
 
-        await loginModal.login("sadsa@gmail.com", "sadsad")
+        await loginModal.login("sadsad@gmail.com", "sadsad")
         await homePage.clickUserProfileBtn()
 
         await highlight.highlightElements(userProfile.avatarImg)
