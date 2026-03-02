@@ -43,7 +43,7 @@ export default defineConfig({
       embedAttachments: true,
       outputFolder: 'reports',
       minifyAssets: true,
-      startServer: true,
+      startServer: false,
     }]
   ],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
