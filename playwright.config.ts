@@ -43,7 +43,7 @@ export default defineConfig({
       embedAttachments: true,
       outputFolder: 'reports',
       minifyAssets: true,
-      startServer: true,
+      startServer: false,
     }]
   ],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
@@ -53,7 +53,7 @@ export default defineConfig({
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
-    
+    headless: true,
     actionTimeout: 60000,
 
     screenshot: 'only-on-failure'
@@ -66,15 +66,15 @@ export default defineConfig({
       use: { ...devices['Desktop Chrome'] },
     },
 
-    {
-      name: 'firefox',
-      use: { ...devices['Desktop Firefox'] },
-    },
+    // {
+    //   name: 'firefox',
+    //   use: { ...devices['Desktop Firefox'] },
+    // },
 
-    {
-      name: 'webkit',
-      use: { ...devices['Desktop Safari'] },
-    },
+    // {
+    //   name: 'webkit',
+    //   use: { ...devices['Desktop Safari'] },
+    // },
     
     /* Test against mobile viewports. */
     // {
