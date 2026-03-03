@@ -225,7 +225,7 @@
               - generic [ref=e250]: Email
               - textbox "Email Email" [ref=e254]:
                 - /placeholder: Điền tên vào đây...
-                - text: weak_1772524970019@mailinator.com
+                - text: weak_1772538000582@mailinator.com
             - generic [ref=e256]:
               - generic [ref=e259]: Password
               - generic [ref=e263]:
