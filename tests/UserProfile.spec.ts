@@ -5,8 +5,8 @@ import { UserProfilePage } from '../pages/UserProfilePage';
 import { HighlightElement } from '../utils/HighlightElement';
 import { ElementUser } from '../utils/ElementUser';
 
-test.describe("Thông tin người dùng", () => {
-    test("Kiểm tra thông tin người dùng", async({page}) =>{
+test.describe("User Profile", () => {
+    test("AU14 - Kiểm tra hiển thị thông tin hồ sơ đúng với người dùng đã đăng nhập tại module User Profile", async({page}) =>{
         const homePage = new HomePage(page)
         const loginModal = new LoginModal(page)
         const userProfile = new UserProfilePage(page)
@@ -17,7 +17,7 @@ test.describe("Thông tin người dùng", () => {
         await homePage.clickUserMenu()
         await homePage.clickDangNhapButton()
         
-        await loginModal.login("sadsa@gmail.com", "sadsad")
+        await loginModal.login("sadsad@gmail.com", "sadsad")
         await homePage.clickUserProfileBtn()
 
         await highlight.highlightElements(userProfile.avatarImg)
@@ -38,17 +38,18 @@ test.describe("Thông tin người dùng", () => {
         
     })
 
-    test("Cập nhật thông tin người dùng thành công", async ({page}) => {
+test("AU15 - Kiểm tra hiển thị thông báo khi cập nhật hồ sơ thành công tại module User Profile", async ({page}) => {
         const homePage = new HomePage(page)
         const loginModal = new LoginModal(page)
         const userProfile = new UserProfilePage(page)
-        
+        const highlight =  new HighlightElement(page)
+
         await homePage.goto()
         
         await homePage.clickUserMenu()
         await homePage.clickDangNhapButton()
         
-        await loginModal.login("sadsa@gmail.com", "sadsad")
+        await loginModal.login("sadsad@gmail.com", "sadsad")
         await homePage.clickUserProfileBtn()
 
         await userProfile.showProfile() 
@@ -63,6 +64,30 @@ test.describe("Thông tin người dùng", () => {
         //await highlight.highlightElements(userProfile.successNoti)
 
         expect(userProfile.successNoti).toBeVisible()
+    })
+
+    test("AU16 - Kiểm tra thông tin sau khi cập nhật hồ sơ thành công tại module User Profile", async ({page}) => {
+        const homePage = new HomePage(page)
+        const loginModal = new LoginModal(page)
+        const userProfile = new UserProfilePage(page)
+        
+        await homePage.goto()
+        
+        await homePage.clickUserMenu()
+        await homePage.clickDangNhapButton()
+        
+        await loginModal.login("sadsad@gmail.com", "sadsad")
+        await homePage.clickUserProfileBtn()
+
+        await userProfile.showProfile() 
+        await userProfile.fillInfo({
+            email:"sadsad@gmail.com",
+            fullname: "ok",
+            phone: "0555555555",
+            dateOfBirth: "18/11/2022",
+            gender: 'male'
+        })
+        await userProfile.clickUpdateBtn()
 
         await userProfile.showProfile()
 
@@ -74,7 +99,7 @@ test.describe("Thông tin người dùng", () => {
 
     })
 
-    test("Cập nhật thông tin người dùng với field trống", async ({page}) => {
+    test("AU17 - Kiểm tra hiển thị thông báo khi cập nhật hồ sơ với field trống tại module User Profile", async ({page}) => {
         const homePage = new HomePage(page)
         const loginModal = new LoginModal(page)
         const userProfile = new UserProfilePage(page)
@@ -111,7 +136,7 @@ test.describe("Thông tin người dùng", () => {
 
     })
 
-    test("Cập nhật thông tin người dùng với không hợp lệ", async ({page}) => {
+    test("AU18 - Kiểm tra hiển thị thông báo khi cập nhật hồ sơ với thông tin không hợp lệ tại module User Profile", async ({page}) => {
         const homePage = new HomePage(page)
         const loginModal = new LoginModal(page)
         const userProfile = new UserProfilePage(page)

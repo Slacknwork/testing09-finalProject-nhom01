@@ -6,10 +6,10 @@ import { LoginModal } from '../pages/LoginModal';
 import { HighlightElement } from '../utils/HighlightElement';
 import { UserProfilePage } from '../pages/UserProfilePage';
 
-test.describe('Đặt phòng', () => {
+test.describe('Booking Flow', () => {
     //test.describe.configure({mode: 'serial'})
 
-    test('Đặt phòng với thông tin hợp lệ (đã đăng nhập)', async({page}) =>{
+    test('AU11 - Kiểm tra đặt phòng thành công theo luồng end-to-end với người dùng đã đăng nhập tại module Booking Flow', async({page}) =>{
         const homePage = new HomePage(page)
         const roomPage = new RoomPage(page)
         const roomDetailPage = new RoomDetailPage(page)
@@ -42,7 +42,7 @@ test.describe('Đặt phòng', () => {
 
     })
 
-    test('Đặt phòng với thông tin hợp lệ (chưa đăng nhập)', async({page}) => {
+    test('AU12 - Kiểm tra không thể đặt phòng khi người dùng chưa đăng nhập tại module Booking Flow', async({page}) => {
         const homePage = new HomePage(page)
         const roomPage = new RoomPage(page)
         const roomDetailPage = new RoomDetailPage(page)
@@ -59,7 +59,7 @@ test.describe('Đặt phòng', () => {
     })
 
     //Only check avaiable rooms
-    test('Kiểm tra thông tin phòng đã đặt', async({page})=> {
+    test('AU13 - Kiểm tra hiển thị lịch sử đặt phòng đúng với người dùng đã đăng nhập tại module Booking Flow', async({page})=> {
         const homePage = new HomePage(page)
         const loginModal = new LoginModal(page)
         const userProfile = new UserProfilePage(page)
