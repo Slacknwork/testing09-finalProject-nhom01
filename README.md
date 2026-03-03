@@ -61,20 +61,24 @@ Testing-Project/
 │   └── UserProfilePage.ts
 │
 ├── tests/ (folder containing testing file)
+│   ├── authentication.spec.ts
 │   ├── Booking.spec.ts
-│   ├── Dangky.spec.ts
-│   ├── UserProfile.spec.ts
-│   └── example.spec.ts
+│   ├── Searching.spec.ts
+│   └── UserProfile.spec.ts
+│
+├── reports/ (contain test reports)
+├── screenshots/ (contain screenshots for fail test case)
 │
 ├── utils/ (folder containing utilities code for repeative code)
 │   ├── ElementUser.ts
 │   └── HighlightElement.ts
 │
 ├── .gitignore
-├── README.md
 ├── package-lock.json
 ├── package.json
-└── playwright.config.ts
+├── playwright.config.ts
+├── README.md
+└── tsconfig.json
 ```
 ## Sample Bug Report
 
@@ -97,11 +101,13 @@ Priority: High
 
 ## Test Coverage
 
-| Module  | Total Test Cases | Passed | Failed |
-| ------- | ---------------- | ------ | ------ |
-| Login   | 15               | 15     | 0      |
-| Booking | 25               | 23     | 2      |
-| Payment | 20               | 18     | 2      |
+| Module           | Total Test Cases | Passed | Failed | Blocked | Not excuted | Pass rate |  
+| ---------------- | ---------------- | ------ | ------ | ------- |------------ |---------- |
+| Authentication   | 16               | 12     | 4      | 0       | 0           | 75%       |
+| Search & Booking | 21               | 14     | 6      | 1       | 0           | 66.7%     |
+| Booking Flow     | 13               | 9      | 3      | 1       | 0           | 69.2%     |
+| User Profile     | 26               | 20     | 5      | 1       | 0           | 76.9%     |
+| Total            | 76               | 55     | 18     | 3       | 0           | 73.7%     |
 
 
 ## How to Run (Automation)
