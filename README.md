@@ -82,8 +82,10 @@ Testing-Project/
 ```
 ## Sample Bug Report
 
-**Bug Title**: Unable to complete booking
-**Environment**: Chrome 120 / Windows 11
+**Bug Title**: Unable to complete booking.
+
+**Environment**: Chrome 145 / Windows 11.
+
 **Steps to Reproduce**:
 1. Login
 2. Select location
