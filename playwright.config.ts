@@ -31,9 +31,13 @@ export default defineConfig({
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: [
-    ['html', {  outputFile: 'reports' }],
+    ['html', {  
+      outputFile: 'reports',
+      open: process.env.CI ? "never" : "always"
+    }],
     ['line'],
     ['playwright-html', { 
+      open: process.env.CI ? "never": "always",
       testFolder: 'tests',
       title: 'Testing09 Final Project Nhóm 1',
       project: 'testing09-finalProject-nhom01',
