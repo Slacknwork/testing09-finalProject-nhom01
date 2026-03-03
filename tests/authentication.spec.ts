@@ -13,9 +13,9 @@ async function expectToastContains(page: any, text: string | RegExp) {
   await expect(toast.first()).toBeVisible({ timeout: 8000 });
   await expect(toast.first()).toContainText(text);
 }
-test.describe('Authentication - TC02 -> TC06', () => {
+test.describe('Authentication - AU01 -> AU05', () => {
 
-  test('TC02 - Register fail when email already exists', async ({ page }) => {
+  test('AU01 - Kiểm tra đăng ký thất bại khi email đã tồn tại', async ({ page }) => {
     const home = new HomePage(page);
     const register = new RegisterModal(page);
     const hi = new HighlightElement(page);
@@ -54,7 +54,7 @@ test.describe('Authentication - TC02 -> TC06', () => {
     await expect(register.modal).toBeVisible();
   });
 
-  test('TC03 - Register fail when password is weak', async ({ page }) => {
+  test('AU02 - Kiểm tra đăng ký thất bại khi trường "mật khẩu" chỉ bao gồm chữ số', async ({ page }) => {
   const home = new HomePage(page);
   const register = new RegisterModal(page);
   const hi = new HighlightElement(page);
@@ -86,7 +86,7 @@ test.describe('Authentication - TC02 -> TC06', () => {
   await expect(register.modal).toBeVisible();
 });
 
-  test('TC04 - Login success with valid credentials', async ({ page }) => {
+  test('AU03 - Kiểm tra đăng nhập thành công với thông tin hợp lệ tại trang chủ', async ({ page }) => {
   const home = new HomePage(page);
   const login = new LoginModal(page);
   const hi = new HighlightElement(page);
@@ -112,7 +112,7 @@ test.describe('Authentication - TC02 -> TC06', () => {
   await expectToastContains(page, /Đăng nhập thành công/i);
 });
 
- test('TC05 - Login fail with wrong email (valid format)', async ({ page }) => {
+ test('AU04 - Kiểm tra đăng nhập thất bại khi nhập sai email nhưng hợp lệ', async ({ page }) => {
   const home = new HomePage(page);
   const login = new LoginModal(page);
   const hi = new HighlightElement(page);
@@ -136,7 +136,7 @@ test.describe('Authentication - TC02 -> TC06', () => {
   await expect(login.modal).toBeVisible();
 });
 
-  test('TC06 - Logout success after login', async ({ page }) => {
+  test('AU05 - Kiểm tra đăng xuất thành công sau khi đã đăng nhập', async ({ page }) => {
   const home = new HomePage(page);
   const login = new LoginModal(page);
   const hi = new HighlightElement(page);

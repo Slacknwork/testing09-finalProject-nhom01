@@ -4,8 +4,8 @@ import { SearchPage } from '../pages/SearchPage';
 import { RoomDetailPage } from '../pages/RoomDetailPage';
 import { RoomPage } from '../pages/RoomPage';
 
-test.describe("Tìm kiếm phòng", () => {
-        test("[TC08] Kiểm tra tìm kiếm theo địa điểm “Hồ Chí Minh tại module Search & Booking",
+test.describe("Search & Booking", () => {
+        test("AU06 - Kiểm tra tìm kiếm theo địa điểm “Hồ Chí Minh tại module Search & Booking",
                 async ({ page }) => {
                         const homePage = new HomePage(page)
                         const searchPage = new SearchPage(page)
@@ -16,7 +16,7 @@ test.describe("Tìm kiếm phòng", () => {
                         expect(totalRooms).toBeGreaterThan(0);
                 })
 
-        test("[TC10] Kiểm tra khi lọc kết quả theo ngày check-in/check-out hợp lệ tại module Search & Booking",
+        test("AU07 - Kiểm tra khi lọc kết quả theo số lượng khách tại module Search & Booking",
                 async ({ page }) => {
                         const homePage = new HomePage(page)
                         const searchPage = new SearchPage(page)
@@ -35,14 +35,14 @@ test.describe("Tìm kiếm phòng", () => {
                         await page.waitForTimeout(1000);
                         expect(totalRooms).toBeGreaterThan(0);
                 })
-        test("[TC11] Kiểm tra khi lọc kết quả theo khoảng giá tại module Search & Booking",
+        test("AU08 - Kiểm tra khi lọc kết quả theo khoảng giá tại module Search & Booking",
                 async ({ page }) => {
                         const homePage = new HomePage(page)
                         const searchPage = new SearchPage(page)
                         await homePage.goto()
                         await expect(page.getByRole('button', { name: 'Giá' })).toBeDisabled();
                 })
-        test("[TC12] Kiểm tra khi mở trang chi tiết phòng từ danh sách kết quả tại module Search & Booking",
+        test("AU09 - Kiểm tra khi mở trang chi tiết phòng từ danh sách kết quả tại module Search & Booking",
                 async ({ page }) => {
                         const homePage = new HomePage(page)
                         const searchPage = new SearchPage(page)
@@ -55,7 +55,7 @@ test.describe("Tìm kiếm phòng", () => {
                         expect(page.url()).toContain('/room-detail/1')
                         await page.waitForTimeout(3000);
         })
-         test("[TC15] Kiểm tra sắp xếp kết quả theo giá/đánh giá hoạt động đúng tại module Search & Booking",
+         test("AU10 - Kiểm tra sắp xếp kết quả theo giá/đánh giá hoạt động đúng tại module Search & Booking",
                 async ({ page }) => {
                         const homePage = new HomePage(page)
                         const searchPage = new SearchPage(page)
