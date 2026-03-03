@@ -95,11 +95,13 @@ Testing-Project/
 6. Click "Đặt phòng" button
 7. Click "Xác nhận" button
 
-Actual Result: Page refreshes unexpectedly
-Expected Result: Booking confirmation page displayed
+**Actual Result**: Page refreshes unexpectedly
 
-Severity: High
-Priority: High
+**Expected Result**: Booking confirmation page displayed
+
+**Severity**: High
+
+**Priority**: High
 
 ## Test Coverage
 
