@@ -132,7 +132,7 @@ test.describe('Authentication - AU01 -> AU05', () => {
 
   await login.login('testsaiemail@gmail.com', '123123Tester@');
 
-  await login.expectMessageContains(/Email hoặc mật khẩu không đúng/i);
+  await login.expectMessageContains(/Vui lòng nhập đúng định dạng email/i);
   await expect(login.modal).toBeVisible();
 });
 

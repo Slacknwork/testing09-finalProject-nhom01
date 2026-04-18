@@ -23,7 +23,7 @@ test.describe("Search & Booking", () => {
                         await homePage.goto()
                         await searchPage.clickDateFilter()
                         //await searchPage.selectDate(page, 'Feb 2026', 28)
-                        await searchPage.selectDateRange(new Date(2026, 2, 15), new Date(2026, 2, 18))
+                        await searchPage.selectDateRange(new Date(2026, 4, 15), new Date(2026, 4, 18))
                         await page.locator('div:has-text("Thêm khách")').nth(3).click();
                         for (let i = 0; i < 3; i++) {
                                 await page.getByText('+').click();
@@ -51,7 +51,7 @@ test.describe("Search & Booking", () => {
                         const roomPage = new RoomPage(page)
                         await homePage.goto()
                         await searchPage.clickDateFilter()
-                        await searchPage.selectDateRange(new Date(2026, 2, 10), new Date(2026, 2, 14))
+                        await searchPage.selectDateRange(new Date(2026, 4, 10), new Date(2026, 4, 14))
                         await page.getByLabel('search').click();
                         await roomPage.clickHCMRooms()
                         expect(page.url()).toContain('/room-detail/1')
