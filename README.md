@@ -132,4 +132,4 @@ Testing-Project/
 
 
 ## Acknowledgments
-- The source code of this website for testing belong to Cybersoft Academy
+- The website that used for testing belong to Cybersoft Academy
